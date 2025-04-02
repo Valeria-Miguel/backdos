@@ -32,7 +32,7 @@ const server = express();
 //Middlewares
 server.use(
     cors({
-        origin:"https://back-2-fhcu.onrender.com",
+        origin:"https://front-logger-seg.vercel.app/",
         credentials: true,
         methods: ["GET", "POST", "OPTIONS"]
     })
