@@ -13,7 +13,8 @@ const PORT = 3002;
 
 const SECRET_KEY = process.env.JWT_SECRET || 'uteq';
 
-const serviceAccount = require("../config/firestore.json");
+//const serviceAccount = require("../config/firestore.json");
+const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT_KEY);
 //inicializa firestore admin SDK
 if (!admin.apps.length) {
     admin.initializeApp({
@@ -31,7 +32,7 @@ const server = express();
 //Middlewares
 server.use(
     cors({
-        origin:"http://localhost:3000",
+        origin:"https://back-2-fhcu.onrender.com",
         credentials: true,
         methods: ["GET", "POST", "OPTIONS"]
     })
