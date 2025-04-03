@@ -475,6 +475,23 @@ server.get("/api/logs/stats", verifyToken, async (req, res) => {
     }
 });
 
+server.get('/api/getInfo-SINTK', (req, res) => {
+    
+    try {
+        const responseData = {
+            nodeVersion: process.version,
+            studentInfo: {
+                fullName: "Dulce Valeria Miguel Juan",
+                group: "IDGS11"
+            },
+            timestamp: new Date().toISOString()
+        };
+        
+        res.json(responseData);
+    } catch (error) {
+        res.status(500).json({ error: "Error interno del servidor" });
+    }
+});
 server.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
